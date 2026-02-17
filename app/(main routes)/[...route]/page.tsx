@@ -69,7 +69,7 @@ const DynamicRoute = async ({
   return (
     <section className="main-section bg-primary">
       <div>
-        <MainHeading heading={route} totalSize={totalSize} />
+        <MainHeading heading={route[0]} totalSize={totalSize} />
       </div>
       <section>
         <Cards files={filteredFiles} />
