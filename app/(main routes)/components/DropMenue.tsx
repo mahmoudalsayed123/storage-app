@@ -10,12 +10,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -31,7 +29,6 @@ import { Input } from "@/components/ui/input";
 import { updateFileName } from "@/app/actions/file.actions";
 import { redirect, usePathname } from "next/navigation";
 import { formatDate, formatFileSize } from "@/app/help/fileUtils";
-import { getUserFromDB } from "@/app/actions/user.actions";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { cn } from "@/lib/utils";
 

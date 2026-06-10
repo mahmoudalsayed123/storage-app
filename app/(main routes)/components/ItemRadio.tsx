@@ -1,6 +1,4 @@
 "use client";
-import { DropdownMenuRadioItem } from "@/components/ui/dropdown-menu";
-import Image from "next/image";
 import {
   Dialog,
   DialogClose,
@@ -14,10 +12,8 @@ import { Field, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-// import { useState } from "react";
 
 const ItemRadio = ({ value }: { value: string }) => {
-  // const [isOpen, setIsOpen] = useState(false);
   return (
     <Dialog>
       <form>

@@ -33,7 +33,7 @@ export const uploadFile = async (file: File) => {
 };
 
 export async function updateStorageUsed(fileSize: number) {
-  if (!fileSize || fileSize <= 0) return null;
+  if (!fileSize || fileSize === 0) return null;
 
   const supabase = supabaseBrowser();
 
@@ -127,7 +127,7 @@ export async function getDownloadURL(url: string) {
     console.error("Error downloading file:", error);
   }
 
-  const path = URL.createObjectURL(data);
+  const path = URL.createObjectURL(data as Blob);
   const a = document.createElement("a");
   a.href = path;
   a.download = fileName;

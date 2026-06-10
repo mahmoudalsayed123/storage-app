@@ -59,8 +59,10 @@ export async function updateFileName(
 }
 
 export async function getFile(nameFile = "") {
+    const users = await getUserFromDB();
+    const user = users?.[0];
   const supabase = await supabaseServer();
-  let query = supabase.from("files").select("*");
+  let query = supabase.from("files").select("*").eq("user_id",user.id)
   if (nameFile) query = query.ilike("name", `%${nameFile}%`);
   const { data, error } = await query;
   if (error) handleError(error.message);

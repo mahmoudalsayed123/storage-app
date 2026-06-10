@@ -17,7 +17,7 @@ export async function getUser() {
 }
 
 // Create User From Database
-export async function createUserFromDB() {
+export async function createUserInDB() {
   const user = await getUser();
 
   if (!user) {
