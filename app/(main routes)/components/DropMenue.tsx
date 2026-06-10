@@ -37,7 +37,7 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [action, setAction] = useState<ActionType | null>(null);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState<string>("");
   const [name, setName] = useState(file?.name);
   const [isLoading, setIsloading] = useState(false);
   const [userName, setUserName] = useState("");
@@ -67,9 +67,11 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
   };
 
   async function getUrl() {
-    await getDownloadURL(file?.storage_path).then((res) => {
-      setUrl(res);
-    });
+    await getDownloadURL(file?.storage_path).then(
+      (res: string | Blob | null) => {
+        if (res) setUrl(res as string);
+      },
+    );
   }
 
   async function handleRename() {
