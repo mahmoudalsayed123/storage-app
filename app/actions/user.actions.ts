@@ -26,7 +26,7 @@ export async function createUserInDB() {
 
   const supabase = await supabaseServer();
 
-  const userData: UserRow = {
+  const userData: Partial<UserRow> = {
     auth_user_id: user.id,
     storage_used: 0,
     name: user?.user_metadata.full_name,
