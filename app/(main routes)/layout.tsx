@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable}  antialiased `}
       >
         <SidebarMd />
-        <main className=" lg:ms-[300px] md:ms-[260px] ">
+        <main className=" lg:ms-75 md:ms-65 ">
           <NavbarMd />
           <NavbarSm />
           {children}

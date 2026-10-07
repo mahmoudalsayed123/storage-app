@@ -1,7 +1,6 @@
 "use client";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import Image from "next/image";
-import Link from "next/link";
 
 const Login = () => {
   const handleLogin = async () => {

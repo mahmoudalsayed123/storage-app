@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const Items = () => {
   const pathName = usePathname();
   return (
-    <div className="mt-[30px] pb-4">
+    <div className="mt-7.5 pb-4">
       <ul>
         {items.map((item) => (
           <Link
@@ -20,7 +20,7 @@ export const Items = () => {
               className={cn(
                 pathName === item.path &&
                   " shadow-xl/30  cursor-pointer bg-black text-white",
-                "w-[300px] md:w-full flex items-center gap-4 px-5 py-2 mb-4 rounded-full transition-all duration-300 cursor-pointer",
+                "w-75 md:w-full flex items-center gap-4 px-5 py-2 mb-4 rounded-full transition-all duration-300 cursor-pointer",
               )}
             >
               <div>

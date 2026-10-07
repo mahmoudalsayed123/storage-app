@@ -8,9 +8,9 @@ const NavbarMd = async () => {
   const user = users[0];
   if (!user) return null;
   return (
-    <nav className="hidden w-full fixed top-0 md:left-[250px] lg:left-[300px]  z-10 bg-white md:flex items-center p-4 border-b-2 border-black">
+    <nav className="hidden w-full fixed top-0 md:left-62.5 lg:left-75  z-10 bg-white md:flex items-center p-4 border-b-2 border-black">
       <SearchDoc />
-      <div className="flex items-center gap-6 absolute md:right-[270px] lg:right-[350px]">
+      <div className="flex items-center gap-6 absolute md:right-67.5 lg:right-87.5">
         <UploadMd />
         <LogOutMd user={user} />
       </div>
