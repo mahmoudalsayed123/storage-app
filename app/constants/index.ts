@@ -4,7 +4,7 @@ export const items = [
   { name: "Dashboard", icon: "/assets/icons/dashboard.svg", path: "/" },
   { name: "Docs", icon: "/assets/icons/documents.svg", path: "/application" },
   { name: "Media", icon: "/assets/icons/video.svg", path: "/media" },
-  { name: "Images", icon: "/assets/icons/image.svg", path: "/image" },
+  { name: "Images", icon: "/assets/icons/images.svg", path: "/image" },
   { name: "Other", icon: "/assets/icons/others.svg", path: "/other" },
 ];
 
