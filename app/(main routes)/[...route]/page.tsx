@@ -6,6 +6,7 @@ import {
   getSearchFile,
 } from "@/app/actions/file.actions";
 import { calculateTotalSizeMB } from "@/app/help/fileUtils";
+import UploadMd from "../components/UploadMd";
 
 const DynamicRoute = async ({
   params,
@@ -59,10 +60,9 @@ const DynamicRoute = async ({
 
   if (filteredFiles?.length === 0)
     return (
-      <section className="relative main-section h-[calc(100vh-120px)] bg-primary">
-        <h2 className="w-fit text-4xl font-bold absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-          NO FILES FOUNDED ❌
-        </h2>
+      <section className="main-section min-h-full bg-surface-background flex flex-col items-center justify-center gap-5">
+        <h2 className="w-fit text-4xl font-bold">NO FILES FOUNDED ❌</h2>
+        <UploadMd />
       </section>
     );
 
