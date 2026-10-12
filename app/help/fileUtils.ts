@@ -69,6 +69,44 @@ export function getFileExtensionFromMime(mimeType?: string | null): string {
   return mimeType.split("/")[1];
 }
 
+export function isPdfOrDocument(
+  file: Pick<FileDocument, "extension" | "mimeType">,
+) {
+  const extension = file?.extension?.toLowerCase();
+  const mimeType = file?.mimeType?.toLowerCase();
+  const documentExtensions = [
+    "pdf",
+    "doc",
+    "docx",
+    "ppt",
+    "pptx",
+    "xls",
+    "xlsx",
+    "txt",
+  ];
+
+  return (
+    documentExtensions.includes(extension) ||
+    mimeType === "document" ||
+    mimeType === "application/pdf"
+  );
+}
+
+export function isMediaFile(file: Pick<FileDocument, "mimeType">) {
+  const mimeType = file?.mimeType?.toLowerCase();
+
+  return mimeType === "video" || mimeType === "audio";
+}
+
+export function getFilePreviewIcon(
+  file: Pick<FileDocument, "extension" | "mimeType">,
+) {
+  if (isPdfOrDocument(file)) return "/assets/icons/file-pdf.svg";
+  if (isMediaFile(file)) return "/assets/icons/file-media.svg";
+
+  return "/assets/icons/file-other.svg";
+}
+
 export function getFirstName(fullName?: string): string {
   if (!fullName) return "";
   return fullName.trim().split(/\s+/)[0];

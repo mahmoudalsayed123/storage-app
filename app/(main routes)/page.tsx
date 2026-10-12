@@ -1,9 +1,9 @@
 import { getFilesFromDBForCurrentUser } from "../actions/file.actions";
-import { createUserInDB, getUserFromDB} from "../actions/user.actions";
+import { createUserInDB, getUserFromDB } from "../actions/user.actions";
 import AvailableStorage from "./components/AvailableStorage";
 import Cards from "./components/Cards";
 
-const Page = async() => {
+const Page = async () => {
   await createUserInDB();
   const users = await getUserFromDB();
   const user = users[0];
@@ -12,7 +12,7 @@ const Page = async() => {
   if (!files) return;
 
   return (
-    <section className="main-section bg-primary ">
+    <section className="main-section w-full min-h-full bg-surface-background">
       <AvailableStorage storage_used={user?.storage_used} />
       <Cards files={files} />
     </section>

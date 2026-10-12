@@ -19,7 +19,7 @@ export const Items = () => {
             <li
               className={cn(
                 pathName === item.path &&
-                  " shadow-xl/30  cursor-pointer bg-black text-white",
+                  " shadow-xl/30  cursor-pointer bg-primary text-white",
                 "w-75 md:w-full flex items-center gap-4 px-5 py-2 mb-4 rounded-full transition-all duration-300 cursor-pointer",
               )}
             >

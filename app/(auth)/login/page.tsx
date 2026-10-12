@@ -5,11 +5,13 @@ import Image from "next/image";
 const Login = () => {
   const handleLogin = async () => {
     const supabase = supabaseBrowser();
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
 
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: `${siteUrl}/auth/callback`,
       },
     });
 

@@ -28,7 +28,7 @@ const UploadMd = () => {
     <div>
       <label
         htmlFor="upload"
-        className="relative flex justify-center items-center gap-2 shadow_xl md:px-2 lg:px-4 py-2 rounded-full cursor-pointer bg-black text-white"
+        className="relative flex justify-center items-center gap-2 shadow-[0px_8px_30px_0px_#4159D64D] md:px-2 lg:px-4 py-2 rounded-full cursor-pointer bg-primary text-white"
       >
         <Image
           src="/assets/icons/upload.svg"
@@ -36,7 +36,7 @@ const UploadMd = () => {
           width={20}
           height={20}
         />
-        <p className="font-bold text-[14px]">Upload</p>
+        <p className="font-bold text-body">Upload</p>
         <input
           type="file"
           id="upload"

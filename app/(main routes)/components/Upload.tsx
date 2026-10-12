@@ -4,7 +4,7 @@ const Upload = () => {
   return (
     <label
       htmlFor="upload"
-      className="bg-black relative flex justify-center items-center gap-2 shadow_xl p-2 mb-5 rounded-full cursor-pointer"
+      className="bg-primary relative flex justify-center items-center gap-2 shadow_xl p-2 mb-5 rounded-full cursor-pointer"
     >
       <Image
         src="/assets/icons/upload.svg"

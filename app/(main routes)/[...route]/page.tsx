@@ -67,11 +67,11 @@ const DynamicRoute = async ({
     );
 
   return (
-    <section className="main-section bg-primary">
-      <div>
+    <section className="main-section bg-surface-background w-full h-full overflow-y-auto">
+      <div className="w-full">
         <MainHeading heading={route[0]} totalSize={totalSize} />
       </div>
-      <section>
+      <section className="w-full">
         <Cards files={filteredFiles} />
       </section>
     </section>

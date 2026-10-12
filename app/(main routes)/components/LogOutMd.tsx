@@ -33,7 +33,7 @@ const LogOutMd = ({ user }: { user: UserRow }) => {
   return (
     <button
       onClick={logoutUser}
-      className="shadow_xl md:px-3 lg:px-5 py-2 rounded-full bg-black cursor-pointer"
+      className="shadow_xl md:px-3 lg:px-5 py-2 rounded-full cursor-pointer"
     >
       <Image
         src="/assets/icons/logout.svg"

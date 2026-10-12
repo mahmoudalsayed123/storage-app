@@ -28,7 +28,7 @@ const SidebarSm = async () => {
           className="cursor-pointer"
         />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="bg-white">
         <SheetHeader>
           <SheetTitle>
             <UserInfoSm />

@@ -28,7 +28,11 @@ import { deleteFile, getDownloadURL } from "@/app/actions/upload.actions";
 import { Input } from "@/components/ui/input";
 import { updateFileName } from "@/app/actions/file.actions";
 import { redirect, usePathname } from "next/navigation";
-import { formatDate, formatFileSize } from "@/app/help/fileUtils";
+import {
+  formatDate,
+  formatFileSize,
+  getFilePreviewIcon,
+} from "@/app/help/fileUtils";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { cn } from "@/lib/utils";
 
@@ -95,7 +99,7 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
   const renderDialogContent = () => {
     if (!action) return;
     return (
-      <DialogContent className="w-[700px]  rounded-lg">
+      <DialogContent className="w-175  rounded-lg bg-white">
         <DialogHeader>
           <DialogTitle className="mb-7 text-center">{action.label}</DialogTitle>
           {action.value === "rename" && (
@@ -107,7 +111,7 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
           )}
           {action.value === "details" && (
             <>
-              <div className="w-[450px] ps-3 p-2 mb-5 flex items-center gap-5 bg-slate-200 rounded-md">
+              <div className="w-112.5 ps-3 p-2 mb-5 flex items-center gap-5 bg-slate-200 rounded-md">
                 {file?.mimeType === "image" ? (
                   <img
                     src={file?.storage_path}
@@ -115,18 +119,12 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
                     width={50}
                     height={50}
                     loading="lazy"
-                    className="w-[80px] h-[60px] rounded-full object-cover"
+                    className="w-20 h-15 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="w-[50px] h-[50px] rounded-full object-cover bg-red-400/10 flex items-center justify-center">
+                  <div className="w-12.5 h-12.5 rounded-full object-cover bg-red-400/10 flex items-center justify-center">
                     <img
-                      src={
-                        file?.mimeType === "video" || file?.mimeType === "audio"
-                          ? "/assets/icons/media/video.svg"
-                          : file?.mimeType === "unknown"
-                            ? "/assets/icons/other/other.svg"
-                            : `/assets/icons/${file?.mimeType}/${file?.extension}.svg`
-                      }
+                      src={getFilePreviewIcon(file)}
                       alt={file?.mimeType}
                       width={30}
                       height={30}
@@ -138,7 +136,7 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
                   <p className=" text-[16px] font-semibold line-clamp-1 wrap-break-word">
                     {file?.name}
                   </p>
-                  <p className=" text-[14px] text-gray-600 mb-3">
+                  <p className=" text-body text-gray-600 mb-3">
                     {formatDate(file?.created_at)}
                   </p>
                 </div>
@@ -147,25 +145,25 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
               <div className="text-left p-3 ps-0">
                 <p className="mb-3">
                   <span className="font-semibold me-3">Formate: </span>{" "}
-                  <span className="text-gray-600 text-[14px]">
+                  <span className="text-gray-600 text-body">
                     {file?.extension}
                   </span>
                 </p>
                 <p className="mb-3">
                   {" "}
                   <span className="font-semibold me-3">Size: </span>{" "}
-                  <span className="text-gray-600 text-[14px]">
+                  <span className="text-gray-600 text-body">
                     {formatFileSize(file?.size)}
                   </span>
                 </p>
                 <p className="mb-3">
                   <span className="font-semibold me-3">Owner: </span>
-                  <span className="text-gray-600 text-[14px]">{userName}</span>
+                  <span className="text-gray-600 text-body">{userName}</span>
                 </p>
                 <p>
                   {" "}
                   <span className="font-semibold me-3">Created At: </span>{" "}
-                  <span className="text-gray-600 text-[14px]">
+                  <span className="text-gray-600 text-body">
                     {formatDate(file?.created_at)}
                   </span>
                 </p>
@@ -173,7 +171,7 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
             </>
           )}
           {action.value === "download" && (
-            <p className="w-[450px] line-clamp-1 wrap-break-word">
+            <p className="w-112.5 line-clamp-1 wrap-break-word">
               Are you sure you want to download{" "}
               <span className="font-semibold text-sky-400">{file?.name}</span> ?
             </p>
@@ -200,10 +198,7 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
                   closeAllModals();
                 }
               }}
-              className={cn(
-                action.value === "delete" ? "bg-red-500" : "bg-black",
-                "w-full lg:p-3 rounded-full text-white cursor-pointer text-[16px]",
-              )}
+              className="w-full lg:p-3 rounded-full text-white cursor-pointer bg-primary"
             >
               <p>{action.value}</p>
               {isLoading && (
@@ -234,11 +229,11 @@ const DropMenue = ({ file }: { file: FileDocument }) => {
           <Image
             src="/assets/icons/dots.svg"
             alt="dots"
-            width={30}
-            height={30}
+            width={25.5}
+            height={5.67}
           />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-[200px] min-h-[150px] p-2">
+        <DropdownMenuContent className="w-50 min-h-37.5 p-2 bg-white">
           <DropdownMenuGroup>
             <DropdownMenuLabel className="mb-2 text-[16px] font-semibold line-clamp-1">
               {file?.name}

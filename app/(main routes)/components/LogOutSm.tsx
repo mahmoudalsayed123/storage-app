@@ -29,7 +29,7 @@ const LogOutSm = ({ user }: { user: UserRow }) => {
   return (
     <button
       onClick={logoutUser}
-      className="w-full bg-black flex justify-center items-center gap-2 shadow_xl p-2 rounded-full cursor-pointer"
+      className="w-full bg-primary flex justify-center items-center gap-2 shadow_xl p-2 rounded-full cursor-pointer"
     >
       <Image
         src="/assets/icons/logout.svg"
