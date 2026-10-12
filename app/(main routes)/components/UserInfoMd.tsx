@@ -7,7 +7,7 @@ const UserInfoMd = async () => {
   const user = users[0];
   if (!user) return null;
   return (
-    <div className="absolute bottom-12.5 left-2 md:w-50 lg:w-67.5 text-black flex items-center md:gap-5 lg:gap-5 p-2 ps-3 shadow_xl rounded-full ">
+    <div className="fixed bottom-12.5 left-2 md:w-50 lg:w-67.5 text-black flex items-center md:gap-5 lg:gap-5 p-2 ps-3 shadow_xl rounded-full ">
       <div className="flex items-center gap-2 ">
         {user?.avatar ? (
           <Image
